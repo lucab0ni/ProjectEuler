@@ -15,7 +15,11 @@ By considering the terms in the Fibonacci sequence whose values do not exceed
 four million, find the sum of the even-valued terms.
 
 """
+
+import time
 import dis
+
+start_time = time.time()
 
 def fibo_sum():
     a = 1
@@ -34,10 +38,12 @@ def fibo_sum():
     return s
 
 sum = fibo_sum()
+
+print "Execution time:", time.time() - start_time, "[s]"
 print "The answer is ", sum
+
+# 4613732
 
 # Use of disassembler module. It converts byte codes to a format that is
 # slightly more appropriate for human consumption.
-dis.dis(fibo_sum)
-
-# 4613732
+#dis.dis(fibo_sum)

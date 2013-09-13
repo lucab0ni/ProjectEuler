@@ -11,7 +11,11 @@ The prime factors of 13195 are 5, 7, 13 and 29.
 What is the largest prime factor of the number 600851475143 ?
 
 """
+
+import time
 import array
+
+start_time = time.time()
 
 startValue = 600851475143
 highestPrime = 1
@@ -31,6 +35,8 @@ for x in range(2, 10000):
     if mul == 600851475143:
         break
 
+
+print "Execution time:", time.time() - start_time, "[s]"
 print "The answer is ", highestPrime
 
 # 6857
