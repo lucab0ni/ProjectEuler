@@ -15,24 +15,29 @@ By considering the terms in the Fibonacci sequence whose values do not exceed
 four million, find the sum of the even-valued terms.
 
 """
+import dis
 
-fiboNr_a = 1
-fiboNr_b = 2
-temp = 0
-sum = fiboNr_b
+def fibo_sum():
+    a = 1
+    b = 1
+    s = 0
 
-while True:
-    temp = fiboNr_b
-    fiboNr_b = fiboNr_a + fiboNr_b
-    fiboNr_a = temp
-    
-    if fiboNr_b < 4000000:
-        print "next Fibonacci number ", fiboNr_b
-        if not(fiboNr_b % 2):
-            sum += fiboNr_b
-    else:
-        break
-   
-print sum
+    while True:
+        # Swapping values without using a temporary variable
+        a, b = b, a + b
+
+        if b < 4000000:
+            if not(b % 2):
+                s += b
+        else:
+            break
+    return s
+
+sum = fibo_sum()
+print "The answer is ", sum
+
+# Use of disassembler module. It converts byte codes to a format that is
+# slightly more appropriate for human consumption.
+dis.dis(fibo_sum)
 
 # 4613732
